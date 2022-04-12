@@ -6,3 +6,4 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/adrianbrad/psql-docker-tests-example/badge)](https://www.codefactor.io/repository/github/adrianbrad/psql-docker-tests-example)
 [![Go Report Card](https://goreportcard.com/badge/github.com/adrianbrad/psql-docker-tests-example)](https://goreportcard.com/report/github.com/adrianbrad/psql-docker-tests-example)
 [![lint-test](https://github.com/adrianbrad/psql-docker-tests-example/workflows/lint-test/badge.svg)](https://github.com/adrianbrad/psql-docker-tests-example/actions?query=workflow%3Alint-test)
+[![codecov](https://codecov.io/gh/adrianbrad/psql-docker-tests-example/branch/main/graph/badge.svg)](https://codecov.io/gh/adrianbrad/psql-docker-tests-example)
