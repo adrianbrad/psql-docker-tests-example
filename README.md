@@ -8,7 +8,10 @@
 [![lint-test](https://github.com/adrianbrad/psql-docker-tests-example/workflows/lint-test/badge.svg)](https://github.com/adrianbrad/psql-docker-tests-example/actions?query=workflow%3Alint-test)
 [![codecov](https://codecov.io/gh/adrianbrad/psql-docker-tests-example/branch/main/graph/badge.svg)](https://codecov.io/gh/adrianbrad/psql-docker-tests-example)
 ---
-Parallel black box PostgreSQL unit tests run against a real database.
+### Parallel black box PostgreSQL unit tests run against a real database.
+
+Consider reading the [Medium Story](https://medium.com/alva-labs/building-microapps-with-grpc-web-64b7cdf50313) first.
+
 
 This package provides examples on how to run PostgreSQL units tests against a real database
 with every tests running in a separate SQL transaction. You can find the tests in [this](https://github.com/adrianbrad/psql-docker-tests-example/tree/main/internal/psql) package.
