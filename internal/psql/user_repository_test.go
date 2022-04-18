@@ -13,105 +13,26 @@ import (
 	"github.com/matryer/is"
 )
 
-// func TestUserRepository(t *testing.T) {
-// 	t.Parallel()
-//
-// 	t.Run("CreateUser", func(t *testing.T) {
-// 		t.Parallel()
-//
-// 		t.Run("Success1", func(t *testing.T) {
-// 			t.Parallel()
-//
-// 			db := psqltest.NewTransactionTestingDB(t)
-// 			...
-// 		})
-//
-// 		t.Run("Success2", func(t *testing.T) {
-// 			t.Parallel()
-//
-// 			db := psqltest.NewTransactionTestingDB(t)
-// 			...
-// 		})
-//
-// 		t.Run("InvalidID", func(t *testing.T) {
-// 			t.Parallel()
-//
-// 			db := psqltest.NewTransactionTestingDB(t)
-// 			...
-// 		})
-//
-// 		t.Run("DuplicatePrimaryKey", func(t *testing.T) {
-// 			t.Parallel()
-//
-// 			db := psqltest.NewTransactionTestingDB(t)
-// 			...
-// 		})
-// 	})
-//
-// 	t.Run("GetUser", func(t *testing.T) {
-// 		t.Parallel()
-//
-// 		t.Run("Success", func(t *testing.T) {
-// 			t.Parallel()
-//
-// 			db := psqltest.NewTransactionTestingDB(t)
-// 			...
-// 		})
-//
-// 		t.Run("NotFound", func(t *testing.T) {
-// 			t.Parallel()
-//
-// 			db := psqltest.NewTransactionTestingDB(t)
-// 			...
-// 		})
-//
-// 		t.Run("InvalidID", func(t *testing.T) {
-// 			t.Parallel()
-//
-// 			db := psqltest.NewTransactionTestingDB(t)
-// 			...
-// 		})
-// 	})
-// }
-
-func addUser(
-	ctx context.Context,
-	t *testing.T,
-	user psql.User,
-) error {
-	t.Helper()
-
-	return psql.
-		NewUserRepository(psqltest.NewTransactionTestingDB(t)).
-		AddUser(ctx, user)
-}
-
-func assertPsqlErr(
-	t *testing.T,
-	err error,
-	code pq.ErrorCode,
-	message string,
-) {
-	t.Helper()
-
-	i := is.New(t)
-
-	i.Helper()
-
-	var pqErr *pq.Error
-
-	i.True(errors.As(err, &pqErr))
-
-	i.Equal(code, pqErr.Code)
-	i.Equal(message, pqErr.Message)
-}
-
 func TestUserRepository(t *testing.T) {
 	t.Parallel()
 
 	ctx := context.Background()
 
 	validUUID := "29974652-b51f-4826-baf0-c8bd2f1cf4c9"
+
+	t.Run("NilDatabase", func(t *testing.T) {
+		t.Parallel()
+
+		i := is.New(t)
+
+		defer func() {
+			err := recover()
+
+			i.Equal("nil db", err)
+		}()
+
+		_ = psql.NewUserRepository(nil)
+	})
 
 	t.Run("CreateUser", func(t *testing.T) {
 		t.Parallel()
@@ -239,4 +160,36 @@ func TestUserRepository(t *testing.T) {
 			)
 		})
 	})
+}
+
+func addUser(
+	ctx context.Context,
+	t *testing.T,
+	user psql.User,
+) error {
+	t.Helper()
+
+	return psql.
+		NewUserRepository(psqltest.NewTransactionTestingDB(t)).
+		AddUser(ctx, user)
+}
+
+func assertPsqlErr(
+	t *testing.T,
+	err error,
+	code pq.ErrorCode,
+	message string,
+) {
+	t.Helper()
+
+	i := is.New(t)
+
+	i.Helper()
+
+	var pqErr *pq.Error
+
+	i.True(errors.As(err, &pqErr))
+
+	i.Equal(code, pqErr.Code)
+	i.Equal(message, pqErr.Message)
 }
