@@ -4,6 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"errors"
+	"fmt"
 	"testing"
 
 	"github.com/adrianbrad/psql-docker-tests-example/internal/psql"
@@ -11,6 +12,99 @@ import (
 	"github.com/lib/pq"
 	"github.com/matryer/is"
 )
+
+// func TestUserRepository(t *testing.T) {
+// 	t.Parallel()
+//
+// 	t.Run("CreateUser", func(t *testing.T) {
+// 		t.Parallel()
+//
+// 		t.Run("Success1", func(t *testing.T) {
+// 			t.Parallel()
+//
+// 			db := psqltest.NewTransactionTestingDB(t)
+// 			...
+// 		})
+//
+// 		t.Run("Success2", func(t *testing.T) {
+// 			t.Parallel()
+//
+// 			db := psqltest.NewTransactionTestingDB(t)
+// 			...
+// 		})
+//
+// 		t.Run("InvalidID", func(t *testing.T) {
+// 			t.Parallel()
+//
+// 			db := psqltest.NewTransactionTestingDB(t)
+// 			...
+// 		})
+//
+// 		t.Run("DuplicatePrimaryKey", func(t *testing.T) {
+// 			t.Parallel()
+//
+// 			db := psqltest.NewTransactionTestingDB(t)
+// 			...
+// 		})
+// 	})
+//
+// 	t.Run("GetUser", func(t *testing.T) {
+// 		t.Parallel()
+//
+// 		t.Run("Success", func(t *testing.T) {
+// 			t.Parallel()
+//
+// 			db := psqltest.NewTransactionTestingDB(t)
+// 			...
+// 		})
+//
+// 		t.Run("NotFound", func(t *testing.T) {
+// 			t.Parallel()
+//
+// 			db := psqltest.NewTransactionTestingDB(t)
+// 			...
+// 		})
+//
+// 		t.Run("InvalidID", func(t *testing.T) {
+// 			t.Parallel()
+//
+// 			db := psqltest.NewTransactionTestingDB(t)
+// 			...
+// 		})
+// 	})
+// }
+
+func addUser(
+	ctx context.Context,
+	t *testing.T,
+	user psql.User,
+) error {
+	t.Helper()
+
+	return psql.
+		NewUserRepository(psqltest.NewTransactionTestingDB(t)).
+		AddUser(ctx, user)
+}
+
+func assertPsqlErr(
+	t *testing.T,
+	err error,
+	code pq.ErrorCode,
+	message string,
+) {
+	t.Helper()
+
+	i := is.New(t)
+
+	i.Helper()
+
+	var pqErr *pq.Error
+
+	i.True(errors.As(err, &pqErr))
+
+	i.Equal(code, pqErr.Code)
+	i.Equal(message, pqErr.Message)
+}
 
 func TestUserRepository(t *testing.T) {
 	t.Parallel()
@@ -26,6 +120,8 @@ func TestUserRepository(t *testing.T) {
 			t.Parallel()
 
 			i := is.New(t)
+
+			fmt.Println(t.Name())
 
 			err := addUser(ctx, t, psql.User{
 				ID:    validUUID,
@@ -143,36 +239,4 @@ func TestUserRepository(t *testing.T) {
 			)
 		})
 	})
-}
-
-func addUser(
-	ctx context.Context,
-	t *testing.T,
-	user psql.User,
-) error {
-	t.Helper()
-
-	return psql.
-		NewUserRepository(psqltest.NewTransactionTestingDB(t)).
-		AddUser(ctx, user)
-}
-
-func assertPsqlErr(
-	t *testing.T,
-	err error,
-	code pq.ErrorCode,
-	message string,
-) {
-	t.Helper()
-
-	i := is.New(t)
-
-	i.Helper()
-
-	var pqErr *pq.Error
-
-	i.True(errors.As(err, &pqErr))
-
-	i.Equal(code, pqErr.Code)
-	i.Equal(message, pqErr.Message)
 }

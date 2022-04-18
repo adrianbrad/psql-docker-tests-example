@@ -3,8 +3,8 @@ module github.com/adrianbrad/psql-docker-tests-example
 go 1.17
 
 require (
-	github.com/adrianbrad/psqldocker v0.0.0-20220412075203-2d587cdd7278
-	github.com/adrianbrad/psqltest v0.0.0-20220412075149-b7d53e8b6851
+	github.com/adrianbrad/psqldocker v1.0.0
+	github.com/adrianbrad/psqltest v1.0.0
 	github.com/lib/pq v1.10.5
 	github.com/matryer/is v1.4.0
 )
