@@ -12,7 +12,7 @@
 ---
 ### Parallel black box PostgreSQL unit tests run against a real database.
 
-Consider reading the [Medium Story](https://medium.com/alva-labs/building-microapps-with-grpc-web-64b7cdf50313) first.
+Consider reading the [Medium Story](https://adrianbrad.medium.com/parallel-postgresql-tests-go-docker-6fb51c016796) first.
 
 
 This package provides examples on how to run PostgreSQL units tests against a real database
