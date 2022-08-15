@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/adrianbrad/psqldocker v1.1.3
-	github.com/adrianbrad/psqltest v1.0.2
+	github.com/adrianbrad/psqltest v1.0.3
 	github.com/lib/pq v1.10.6
 	github.com/matryer/is v1.4.0
 )
@@ -20,16 +20,12 @@ require (
 	github.com/docker/docker v20.10.17+incompatible // indirect
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-units v0.4.0 // indirect
-	github.com/fatih/color v1.13.0 // indirect
 	github.com/go-redis/redis v6.15.9+incompatible // indirect
-	github.com/goccy/go-yaml v1.9.5 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510 // indirect
 	github.com/imdario/mergo v0.3.13 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
-	github.com/mattn/go-colorable v0.1.12 // indirect
-	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/moby/term v0.0.0-20220808134915-39b0c02b01ae // indirect
 	github.com/opencontainers/go-digest v1.0.0 // indirect
