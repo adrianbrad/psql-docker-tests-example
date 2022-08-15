@@ -3,7 +3,6 @@ package psql_test
 import (
 	"fmt"
 	"log"
-	"os"
 	"testing"
 
 	"github.com/adrianbrad/psqldocker"
@@ -37,18 +36,12 @@ func TestMain(m *testing.M) {
 		log.Fatalf("err while creating new psql container: %s", err)
 	}
 
-	// exit code
-	var ret int
-
 	defer func() {
 		// close the psql container
 		err = c.Close()
 		if err != nil {
 			log.Printf("err while tearing down db container: %s", err)
 		}
-
-		// exit with the code provided by executing m.Run().
-		os.Exit(ret)
 	}()
 
 	// compose the psql dsn.
@@ -71,5 +64,5 @@ func TestMain(m *testing.M) {
 	psqltest.Register(dsn)
 
 	// run the package tests.
-	ret = m.Run()
+	m.Run()
 }
