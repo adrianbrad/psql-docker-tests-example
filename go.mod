@@ -3,7 +3,7 @@ module github.com/adrianbrad/psql-docker-tests-example
 go 1.17
 
 require (
-	github.com/adrianbrad/psqldocker v1.1.3
+	github.com/adrianbrad/psqldocker v1.1.4
 	github.com/adrianbrad/psqltest v1.0.2
 	github.com/lib/pq v1.10.6
 	github.com/matryer/is v1.4.0
@@ -43,8 +43,8 @@ require (
 	github.com/xeipuuv/gojsonpointer v0.0.0-20190905194746-02993c407bfb // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	github.com/xeipuuv/gojsonschema v1.2.0 // indirect
-	golang.org/x/net v0.0.0-20220809184613-07c6da5e1ced // indirect
-	golang.org/x/sys v0.0.0-20220808155132-1c4a2a72c664 // indirect
+	golang.org/x/net v0.0.0-20220812174116-3211cb980234 // indirect
+	golang.org/x/sys v0.0.0-20220811171246-fbc7d0a398ab // indirect
 	golang.org/x/xerrors v0.0.0-20220609144429-65e65417b02f // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
