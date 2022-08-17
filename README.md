@@ -1,6 +1,8 @@
 <img align="right" width="300" src="https://github.com/adrianbrad/psql-docker-tests-example/blob/image-data/logo.png?raw=true" alt="adrianbrad psqldocker">
 
 # 📊 psql-docker-tests-example
+[![gitleaks](https://img.shields.io/badge/protected%20by-gitleaks-blue)](https://github.com/zricethezav/gitleaks-action)
+
 [![made-with-Go](https://img.shields.io/badge/Made%20with-Go-1f425f.svg)](https://go.dev/)
 [![GitHub go.mod Go version of a Go module](https://img.shields.io/github/go-mod/go-version/adrianbrad/psql-docker-tests-example)](https://github.com/adrianbrad/psql-docker-tests-example)
 [![GoDoc reference example](https://img.shields.io/badge/godoc-reference-blue.svg)](https://godoc.org/adrianbrad/psql-docker-tests-example)
