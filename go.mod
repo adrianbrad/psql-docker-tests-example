@@ -5,7 +5,7 @@ go 1.17
 require (
 	github.com/adrianbrad/psqldocker v1.1.4
 	github.com/adrianbrad/psqltest v1.1.1
-	github.com/lib/pq v1.10.6
+	github.com/lib/pq v1.10.7
 	github.com/matryer/is v1.4.0
 )
 
