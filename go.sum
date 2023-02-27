@@ -10,8 +10,6 @@ github.com/Nvveen/Gotty v0.0.0-20120604004816-cd527374f1e5 h1:TngWCqHvy9oXAN6lEV
 github.com/Nvveen/Gotty v0.0.0-20120604004816-cd527374f1e5/go.mod h1:lmUJ/7eu/Q8D7ML55dXQrVaamCz2vxCfdQBasLZfHKk=
 github.com/adrianbrad/psqldocker v1.1.4 h1:tOji/OXk0iuznD3ldoltpmCZDimxU3q8UffgWD8rtmE=
 github.com/adrianbrad/psqldocker v1.1.4/go.mod h1:pRYQ8E6m7p95vnrj29WNnKrf72ksjDVV+czUkeT6LIQ=
-github.com/adrianbrad/psqltest v1.1.0 h1:rPj4M5ji0KdHtq98H0XrVgSyLcy2mGIX9kcH7fsZvRc=
-github.com/adrianbrad/psqltest v1.1.0/go.mod h1:H02gDlhz0bKEGvwP7tWjIqVupmjMAAAfz376h+zSCrQ=
 github.com/adrianbrad/psqltest v1.1.1 h1:8C1eSiEzkPxO1LMW3i+j0JUjiYY2YuXvUMLwRxvisPg=
 github.com/adrianbrad/psqltest v1.1.1/go.mod h1:H02gDlhz0bKEGvwP7tWjIqVupmjMAAAfz376h+zSCrQ=
 github.com/cenkalti/backoff/v4 v4.1.3 h1:cFAlzYUlVYDysBEH2T5hyJZMh3+5+WCBvSnK6Q8UtC4=
@@ -67,8 +65,9 @@ github.com/lib/pq v0.0.0-20180327071824-d34b9ff171c2/go.mod h1:5WUZQaWbwv1U+lTRe
 github.com/lib/pq v1.10.5/go.mod h1:AlVN5x4E4T544tWzH6hKfbfQvm3HdbOxrmggDNAPY9o=
 github.com/lib/pq v1.10.6 h1:jbk+ZieJ0D7EVGJYpL9QTz7/YW6UHbmdnZWYyK5cdBs=
 github.com/lib/pq v1.10.6/go.mod h1:AlVN5x4E4T544tWzH6hKfbfQvm3HdbOxrmggDNAPY9o=
-github.com/matryer/is v1.4.0 h1:sosSmIWwkYITGrxZ25ULNDeKiMNzFSr4V/eqBQP0PeE=
 github.com/matryer/is v1.4.0/go.mod h1:8I/i5uYgLzgsgEloJE1U6xx5HkBQpAZvepWuujKwMRU=
+github.com/matryer/is v1.4.1 h1:55ehd8zaGABKLXQUe2awZ99BD/PTc2ls+KV/dXphgEQ=
+github.com/matryer/is v1.4.1/go.mod h1:8I/i5uYgLzgsgEloJE1U6xx5HkBQpAZvepWuujKwMRU=
 github.com/mitchellh/mapstructure v1.4.1/go.mod h1:bFUtVrKA4DC2yAKiSyO/QUcy7e+RRV2QTWOzhPopBRo=
 github.com/mitchellh/mapstructure v1.5.0 h1:jeMsZIYE/09sWLaz43PL7Gy6RuMjD2eJVyuac5Z2hdY=
 github.com/mitchellh/mapstructure v1.5.0/go.mod h1:bFUtVrKA4DC2yAKiSyO/QUcy7e+RRV2QTWOzhPopBRo=
