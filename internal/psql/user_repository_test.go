@@ -4,12 +4,12 @@ import (
 	"context"
 	"database/sql"
 	"errors"
-	"fmt"
 	"testing"
 
 	"github.com/adrianbrad/psql-docker-tests-example/internal/psql"
 	"github.com/adrianbrad/psqltest"
-	"github.com/lib/pq"
+	"github.com/jackc/pgerrcode"
+	"github.com/jackc/pgx/v5/pgconn"
 	"github.com/matryer/is"
 )
 
@@ -42,8 +42,6 @@ func TestUserRepository(t *testing.T) {
 
 			i := is.New(t)
 
-			fmt.Println(t.Name())
-
 			err := addUser(ctx, t, psql.User{
 				ID:    validUUID,
 				Email: "email",
@@ -74,7 +72,7 @@ func TestUserRepository(t *testing.T) {
 			assertPsqlErr(
 				t,
 				err,
-				"22P02",
+				pgerrcode.InvalidTextRepresentation,
 				"invalid input syntax for type uuid: \"id\"",
 			)
 		})
@@ -97,7 +95,7 @@ func TestUserRepository(t *testing.T) {
 			assertPsqlErr(
 				t,
 				err,
-				"23505",
+				pgerrcode.UniqueViolation,
 				"duplicate key value violates unique constraint \"users_pkey\"",
 			)
 		})
@@ -155,7 +153,7 @@ func TestUserRepository(t *testing.T) {
 			assertPsqlErr(
 				t,
 				err,
-				"22P02",
+				pgerrcode.InvalidTextRepresentation,
 				"invalid input syntax for type uuid: \"id\"",
 			)
 		})
@@ -177,7 +175,7 @@ func addUser(
 func assertPsqlErr(
 	t *testing.T,
 	err error,
-	code pq.ErrorCode,
+	code string,
 	message string,
 ) {
 	t.Helper()
@@ -186,7 +184,7 @@ func assertPsqlErr(
 
 	i.Helper()
 
-	var pqErr *pq.Error
+	var pqErr *pgconn.PgError
 
 	i.True(errors.As(err, &pqErr))
 

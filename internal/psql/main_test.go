@@ -24,7 +24,7 @@ func TestMain(m *testing.M) {
 		password,
 		dbName,
 		psqldocker.WithContainerName(containerName),
-		psqldocker.WithSql(`
+		psqldocker.WithSQL(`
 		CREATE TABLE users(
 			user_id UUID PRIMARY KEY,
 			email VARCHAR NOT NULL
@@ -61,7 +61,7 @@ func TestMain(m *testing.M) {
 	// register the psql container connection details
 	// in order to be able to spawn new database connections
 	// in an isolated transaction.
-	psqltest.Register(dsn)
+	psqltest.RegisterWithPSQLDriver(dsn, "pgx")
 
 	// run the package tests.
 	m.Run()
